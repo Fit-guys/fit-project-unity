@@ -4,8 +4,10 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PartManager : MonoSingleton<PartManager>
+public class MainManager : MonoSingleton<MainManager>
 {
+	public int winsToComplete = 5;
+
 	[SerializeField] Button[] partPrefabs;
 	GameObject[] gameParts;
 	GameObject[] selectableParts;
@@ -18,11 +20,16 @@ public class PartManager : MonoSingleton<PartManager>
 	List<int> indexesLeft;
 	Dictionary<int, int> topIndexes;
 
+	//Set to -1 so it's 0 on first game load
+	int winsCount = -1;
+
 	void Start()
 	{
 		SetParts();
 
 		Load(true);
+
+		TimeManager.Instance.OnLose += Lose;
 	}
 
 	void SetParts()
@@ -43,18 +50,20 @@ public class PartManager : MonoSingleton<PartManager>
 	{
 		for (int i = 0; i < partPrefabs.Length; i++)
 		{
-			selectableParts[i].SetActive(false);
-			gameParts[i].SetActive(false);
-
 			gameParts[i].GetComponent<Image>().color = new Color(1, 1, 1, 0.25f);
 			gameParts[i].GetComponent<Button>().enabled = false;
-
 			selectableParts[i].GetComponent<Image>().color = new Color(1, 1, 1, 1);
+
+
+			selectableParts[i].SetActive(false);
+			gameParts[i].SetActive(false);
 		}
 	}
 
 	void Load(bool init)
 	{
+		HandleCompletion();
+
 		if (init)
 		{
 			Transform sel = GameObject.Find("Selectable Parts").transform;
@@ -72,6 +81,16 @@ public class PartManager : MonoSingleton<PartManager>
 		SetValuesToDefault();
 
 		Scrumble();
+
+		TimeManager.Instance.ResetAndStartTimer(40);
+	}
+
+	void HandleCompletion()
+	{
+		if (++winsCount == winsToComplete)
+		{
+			UIPanelsManager.Instance.ShowWinPanel();
+		}
 	}
 
 	void Scrumble()
@@ -141,14 +160,17 @@ public class PartManager : MonoSingleton<PartManager>
 	{
 		int indexOfPart = Array.IndexOf(selectableParts, part);
 
-		int topButtonId = topIndexes[indexOfPart];
+		part.GetComponent<Image>().color = new Color(0, 0, 0, 0);
 
-		if (topButtonId == -1)
+		if (!topIndexes.ContainsKey(indexOfPart))
 			OnWrongAnswer();
 
 		else
 		{
-			SetImages(topParts[topButtonId], part.GetComponent<Image>());
+			int topButtonId = topIndexes[indexOfPart];
+
+			topParts[topButtonId].GetComponent<Image>().color = new Color(1, 1, 1, 1);
+
 			topIndexes.Remove(indexOfPart);
 
 			if (topIndexes.Count == 0)
@@ -156,14 +178,13 @@ public class PartManager : MonoSingleton<PartManager>
 		}
 	}
 
-	void SetImages(GameObject topPart, Image selectedPartImage)
-	{
-		topPart.GetComponent<Image>().color = new Color(1, 1, 1, 1);
-		selectedPartImage.color = new Color(0, 0, 0, 0);
-	}
-
 	void OnWrongAnswer()
 	{
 		print("PartManager -- OnWrongAnswer");
+	}
+
+	void Lose()
+	{
+		UIPanelsManager.Instance.ShowLosePanel();
 	}
 }

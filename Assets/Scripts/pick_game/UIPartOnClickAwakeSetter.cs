@@ -10,6 +10,6 @@ public class UIPartOnClickAwakeSetter : MonoBehaviour
 
 	private void OnClick()
 	{
-		PartManager.Instance.OnPartClicked(gameObject);
+		MainManager.Instance.OnPartClicked(gameObject);
 	}
 }
