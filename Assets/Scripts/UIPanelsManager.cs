@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class UIPanelsManager : MonoSingleton<UIPanelsManager>
+public class UIPanelsManager : Singleton<UIPanelsManager>
 {
 	[SerializeField] GameObject losePanel;
 	[SerializeField] GameObject winPanel;

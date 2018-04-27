@@ -1,65 +1,67 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class PlatformManager : MonoBehaviour
+namespace Doodle
 {
-	[SerializeField] int platformsAmount = 50;
-	[Space]
-	[SerializeField] GameObject platformPrefab;
-	GameObject initialPlatforms;
-
-	const float HALF_PLATFORM_WIDTH = 0.5f;
-	const float OFFSET = 0.02f;
-	float halfScreenHeight;
-
-	float curY = -1;
-	bool initialPlatformsRemoved = false;
-
-	float initialDistanceBetweenPlatformsY = 0.5f;
-	const float distanceYIncreaser = 0.03f;
-
-	Queue<GameObject> platforms = new Queue<GameObject>();
-
-	Transform mainCamTransform;
-
-	void Start()
+	public class PlatformManager : Singleton<PlatformManager>
 	{
-		mainCamTransform = Camera.main.transform;
+		public float HalfScreenHeight;
+		[SerializeField] int platformsAmount = 50;
+		[Space]
+		[SerializeField] GameObject platformPrefab;
+		GameObject initialPlatforms;
 
-		initialPlatforms = GameObject.Find("Initial Platforms");
-		platforms.Enqueue(initialPlatforms);
+		const float HALF_PLATFORM_WIDTH = 0.5f;
+		const float OFFSET = 0.02f;
 
-		Transform platformsHolder = new GameObject("Platforms Holder").transform;
+		float curY = -1;
 
-		Vector3 c = Camera.main.ScreenToWorldPoint(Vector2.zero);
+		float initialDistanceBetweenPlatformsY = 0.5f;
+		const float distanceYIncreaser = 0.03f;
 
-		float minX = c.x + HALF_PLATFORM_WIDTH + OFFSET;
-		float maxX = minX * -1;
-		halfScreenHeight = -c.y;
+		Queue<GameObject> platforms = new Queue<GameObject>();
 
-		for (int i = 0; i < platformsAmount; i++)
+		Transform mainCamTransform;
+
+		void Start()
 		{
-			GameObject platform = Instantiate(platformPrefab, new Vector2(Random.Range(minX, maxX), curY), Quaternion.identity, platformsHolder);
-			platforms.Enqueue(platform);
+			mainCamTransform = Camera.main.transform;
 
-			curY += initialDistanceBetweenPlatformsY + distanceYIncreaser * i;
+			initialPlatforms = GameObject.Find("Initial Platforms");
+			platforms.Enqueue(initialPlatforms);
+
+			Transform platformsHolder = new GameObject("Platforms Holder").transform;
+
+			Vector3 c = Camera.main.ScreenToWorldPoint(Vector2.zero);
+
+			float minX = c.x + HALF_PLATFORM_WIDTH + OFFSET;
+			float maxX = minX * -1;
+			HalfScreenHeight = -c.y;
+
+			for (int i = 0; i < platformsAmount; i++)
+			{
+				GameObject platform = Instantiate(platformPrefab, new Vector2(Random.Range(minX, maxX), curY), Quaternion.identity, platformsHolder);
+				platforms.Enqueue(platform);
+
+				curY += initialDistanceBetweenPlatformsY + distanceYIncreaser * i;
+			}
 		}
-	}
 
-	void Update()
-	{
-		RemoveLowestPlatform();
-	}
-
-	bool RemoveLowestPlatform()
-	{
-		if(platforms.Peek().transform.position.y < mainCamTransform.position.y - halfScreenHeight)
+		void Update()
 		{
-			GameObject d = platforms.Dequeue();
-			Destroy(d);
-
-			return true;
+			RemoveLowestPlatform();
 		}
-		return false;
-	}
+
+		bool RemoveLowestPlatform()
+		{
+			if (platforms.Peek().transform.position.y - 0.1f < mainCamTransform.position.y - HalfScreenHeight)
+			{
+				GameObject d = platforms.Dequeue();
+				Destroy(d);
+
+				return true;
+			}
+			return false;
+		}
+	} 
 }

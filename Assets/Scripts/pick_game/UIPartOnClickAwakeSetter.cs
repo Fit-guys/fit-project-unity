@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class UIPartOnClickAwakeSetter : MonoBehaviour
+namespace Pick
 {
-	void Awake()
+	public class UIPartOnClickAwakeSetter : MonoBehaviour
 	{
-		GetComponent<Button>().onClick.AddListener(OnClick);	
-	}
+		void Awake()
+		{
+			GetComponent<Button>().onClick.AddListener(OnClick);
+		}
 
-	private void OnClick()
-	{
-		MainManager.Instance.OnPartClicked(gameObject);
-	}
+		private void OnClick()
+		{
+			MainManager.Instance.OnPartClicked(gameObject);
+		}
+	} 
 }

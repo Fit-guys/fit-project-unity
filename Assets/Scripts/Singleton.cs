@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public abstract class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
+public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T>
 {
     private static T instance = null;
 
