@@ -11,7 +11,8 @@ namespace Doodle
 
 		public void Win()
 		{
-
+			//Play win sound
+			//Display cool UI
 		}
 
 		public void Lose()
