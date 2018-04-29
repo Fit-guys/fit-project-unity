@@ -28,10 +28,14 @@ namespace PuzzleGame
 
 			print(d);
 
-			if (d < 100)
+			if (d < 150)
 			{
 				transform.SetParent(puzzleHolder);
 				transform.localPosition = Vector2.zero;
+				this.enabled = false;
+
+				//Temp shitty code
+				MainManager.PlacedPuzzleCount++;
 			}
 
 			else

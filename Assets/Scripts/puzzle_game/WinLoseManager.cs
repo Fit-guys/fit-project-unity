@@ -1,15 +1,23 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-namespace Pick
+//TODO: IMPLEMENT GENERIC VERSION OF THIS PIECE OF CRAP 
+namespace PuzzleGame
 {
+
+	//TODO: FIX THE POSSIBILITY TO WIN AND LOSE AT ONCE
+
+
+
+
+
 	public class WinLoseManager : MonoBehaviour, IWinLose
 	{
 		void Start()
 		{
 			print("1");
-
-			//Don't touch it i know it's bad i ll fix it as soon as i can
-			MainManager.Instance.OnWin += Win;
+			MainManager.OnWin += Win;
 			TimeManager.Instance.OnLose += Lose;
 		}
 
