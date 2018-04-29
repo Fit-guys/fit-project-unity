@@ -428,6 +428,48 @@ Transform:
   m_PrefabParentObject: {fileID: 4307410006270298, guid: 74608b8cce9c2a94f855ca6d7c3064b8,
     type: 2}
   m_PrefabInternal: {fileID: 357521130}
+--- !u!1001 &395569548
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4341300423555602, guid: 715b8c5eaa1cec5478419623ef9f3906, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4341300423555602, guid: 715b8c5eaa1cec5478419623ef9f3906, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4341300423555602, guid: 715b8c5eaa1cec5478419623ef9f3906, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4341300423555602, guid: 715b8c5eaa1cec5478419623ef9f3906, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4341300423555602, guid: 715b8c5eaa1cec5478419623ef9f3906, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4341300423555602, guid: 715b8c5eaa1cec5478419623ef9f3906, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4341300423555602, guid: 715b8c5eaa1cec5478419623ef9f3906, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4341300423555602, guid: 715b8c5eaa1cec5478419623ef9f3906, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 715b8c5eaa1cec5478419623ef9f3906, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &455470472 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4307410006270298, guid: 74608b8cce9c2a94f855ca6d7c3064b8,

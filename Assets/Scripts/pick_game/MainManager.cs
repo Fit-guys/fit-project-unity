@@ -25,15 +25,13 @@ namespace Pick
 		//Set to -1 so it's 0 on first game load
 		int winsCount = -1;
 
-		public event System.Action OnWin;
+		public event Action OnWin = delegate { };
 
 		void Start()
 		{
 			SetParts();
 
 			Load(true);
-
-			TimeManager.Instance.OnLose += Lose;
 		}
 
 		void SetParts()
@@ -87,7 +85,7 @@ namespace Pick
 
 			Scrumble();
 
-			TimeManager.Instance.ResetAndStartTimer(40);
+			TimeManager.Instance.ResetAndStartTimer(4);
 		}
 
 		void Scrumble()
@@ -178,11 +176,6 @@ namespace Pick
 		void OnWrongAnswer()
 		{
 			print("PartManager -- OnWrongAnswer");
-		}
-
-		void Lose()
-		{
-			UIPanelsManager.Instance.ShowLosePanel();
 		}
 	} 
 }

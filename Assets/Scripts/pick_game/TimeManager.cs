@@ -1,40 +1,45 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Pick
+public class TimeManager : Singleton<TimeManager>
 {
-	public class TimeManager : Singleton<TimeManager>
+	Slider slider;
+	float loseTime = 2;
+	float curTime;
+	bool decreaseTime = false;
+
+	public event System.Action OnLose = delegate { };
+
+	public void ResetAndStartTimer(int loseTime)
 	{
-		[SerializeField] Slider slider;
-		float loseTime = 2;
-		float curTime;
-		bool decreaseTime = false;
+		slider.value = 1;
+		curTime = 0;
+		this.loseTime = loseTime;
 
-		public event System.Action OnLose;
+		decreaseTime = true;
+	}
 
-		public void ResetAndStartTimer(int loseTime)
+	void Start()
+	{
+		slider = GetComponent<Slider>();
+
+		//TODO: Change this
+		ResetAndStartTimer(4);
+	}
+
+	void Update()
+	{
+		if (decreaseTime)
 		{
-			slider.value = 1;
-			curTime = 0;
-			this.loseTime = loseTime;
+			curTime += Time.deltaTime;
 
-			decreaseTime = true;
-		}
-
-		void Update()
-		{
-			if (decreaseTime)
+			if (curTime >= loseTime)
 			{
-				curTime += Time.deltaTime;
-
-				if (curTime >= loseTime)
-				{
-					decreaseTime = false;
-					OnLose();
-				}
-
-				slider.value = 1 - curTime / loseTime;
+				decreaseTime = false;
+				OnLose();
 			}
+
+			slider.value = 1 - curTime / loseTime;
 		}
-	} 
+	}
 }

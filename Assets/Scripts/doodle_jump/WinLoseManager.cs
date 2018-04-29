@@ -27,7 +27,7 @@ namespace Doodle
 			//Play lose sound!
 
 			//Display UI
-			//UIPanelsManager.Instance.ShowLosePanel();
+			UIPanelsManager.Instance.ShowLosePanel();
 		}
 	}
 }

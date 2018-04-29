@@ -2,16 +2,20 @@
 
 public class UIPanelsManager : Singleton<UIPanelsManager>
 {
-	[SerializeField] GameObject losePanel;
-	[SerializeField] GameObject winPanel;
+	[SerializeField] GameObject loseMenu;
+	[SerializeField] GameObject winMenu;
+
+	[SerializeField] GameObject blockingPanel;
 
 	public void ShowLosePanel()
 	{
-		losePanel.SetActive(true);
+		blockingPanel.SetActive(true);
+		loseMenu.SetActive(true);
 	}
 
 	public void ShowWinPanel()
 	{
-		winPanel.SetActive(true);
+		blockingPanel.SetActive(true);
+		winMenu.SetActive(true);
 	}
 }
