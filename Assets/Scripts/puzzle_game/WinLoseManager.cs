@@ -23,12 +23,20 @@ namespace PuzzleGame
 
 		public void Lose()
 		{
+<<<<<<< HEAD
 			UIPanelsManager.Instance.ShowLosePanel("puzzle_game");
+=======
+			UIPanelsManager.Instance.ShowLosePanel();
+>>>>>>> 33241823324bf11bf84d9f6c4509f324a7202c5b
 		}
 
 		public void Win()
 		{
+<<<<<<< HEAD
 			UIPanelsManager.Instance.ShowWinPanel("puzzle_game");
+=======
+			UIPanelsManager.Instance.ShowWinPanel();
+>>>>>>> 33241823324bf11bf84d9f6c4509f324a7202c5b
 		}
 	}
 }
