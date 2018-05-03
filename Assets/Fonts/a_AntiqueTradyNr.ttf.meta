@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: affe24a7fd0971341bfb70a0ea654cfe
+timeCreated: 1525285309
+licenseType: Pro
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: a_AntiqueTradyNr
+  fontNames:
+  - a_AntiqueTradyNr
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

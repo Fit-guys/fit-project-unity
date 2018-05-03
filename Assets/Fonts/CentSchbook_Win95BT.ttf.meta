@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: bcaaa08d1c8f1354c91fd3dbcf7e9bcf
+timeCreated: 1525285563
+licenseType: Pro
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: CentSchbook Win95BT
+  fontNames:
+  - CentSchbook Win95BT
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

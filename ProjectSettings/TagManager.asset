@@ -15,7 +15,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Num8
   - 
   - 
   - 
@@ -45,4 +45,10 @@ TagManager:
     locked: 1
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: nextr
+    uniqueID: 1167545517
+    locked: 0
+  - name: New Layer
+    uniqueID: 2275502139
     locked: 0

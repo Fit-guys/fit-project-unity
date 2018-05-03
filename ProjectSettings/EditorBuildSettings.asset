@@ -4,4 +4,34 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/menu.unity
+    guid: c8d3c686693041749bcf627d302c51ab
+  - enabled: 1
+    path: Assets/1check/1check.unity
+    guid: d0990f95f814ed24daacc36578f13211
+  - enabled: 0
+    path: Assets/1check/doodle_jump.unity
+    guid: 0bcbf63808679a84eb3e7e6a1bbc0d95
+  - enabled: 0
+    path: Assets/1check/pick_game.unity
+    guid: 437e69951efd7de4f9df42bed019729e
+  - enabled: 0
+    path: Assets/1check/card_match.unity
+    guid: f684e1d00db7f634d9c04c134fcddbdc
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: Assets/1check/Crazyball-game-template/Scene/Menu.unity
+    guid: 887f2c93ab25f1f4cb4cfb9765885c78
+  - enabled: 0
+    path: Assets/1check/Balls.unity
+    guid: dee3b45defa3ad54dafc7418efeff3eb
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: Assets/1check/puzzle_game.unity
+    guid: d33407d8ebef87148b4ab2b1b262a346
