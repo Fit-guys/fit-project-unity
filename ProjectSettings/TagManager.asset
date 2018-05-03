@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Part
+  - Platform
+  - Manager
+  - MaterialButtonLayer
+  - MaterialText
+  - MaterialRadioButton
+  - Drop Area
+  - Puzzle
   layers:
   - Default
   - TransparentFX
@@ -13,7 +21,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Num8
   - 
   - 
   - 
@@ -38,6 +46,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1443671211
+    locked: 1
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: nextr
+    uniqueID: 1167545517
+    locked: 0
+  - name: New Layer
+    uniqueID: 2275502139
     locked: 0
