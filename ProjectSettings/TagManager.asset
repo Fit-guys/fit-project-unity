@@ -6,12 +6,6 @@ TagManager:
   tags:
   - Part
   - Platform
-  - Manager
-  - MaterialButtonLayer
-  - MaterialText
-  - MaterialRadioButton
-  - Drop Area
-  - Puzzle
   layers:
   - Default
   - TransparentFX
